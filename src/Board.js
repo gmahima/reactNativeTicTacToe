@@ -9,7 +9,14 @@ const Board = () => {
     const c = useContext(GameContext)
     return(
         <Container>
-            <Title>{`Player ${c.turn}`}</Title>
+            {/* {() => {
+                if(c.status === "running") {
+                    <Title>{c.turn}</Title>
+                }
+                else if(c.winner != 0) {
+                    <Title>{c.winner}</Title>
+                }
+            }} */}
             <Row>
                 <Square i={0} />
                 <Square i={1} />

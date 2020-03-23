@@ -7,7 +7,9 @@ const Square = ({i}) => {
     const c = useContext(GameContext)
 
     return(
-        <TouchableOpacity onPress={() => {console.log("hi"); c.actions.mark(i)}}> 
+        <TouchableOpacity onPress={() => {
+        if(c.status === 'running') {c.actions.mark(i)}
+        }}> 
         <Tile>
             <Val>
                 {c.values[i]}
