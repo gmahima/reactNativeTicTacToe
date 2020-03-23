@@ -9,19 +9,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 import Board from './Board'
-import {Provider,Context} from './Context'
+import {Provider,GameContext} from './Context'
 
 import styled from 'styled-components'
+
 const App = () => {
+  const c = useContext(GameContext)
   return (
     <Provider>
       <Board />
@@ -31,11 +25,7 @@ const App = () => {
 };
 
 
-const Title = styled.Text`
-font-size: 20px;
-font-weight: 500;
-color: palevioletred;
-`;
+
 export default App;
 // import React from 'react';
 // import styled from 'styled-components';

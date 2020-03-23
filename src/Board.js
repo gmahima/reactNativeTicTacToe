@@ -2,11 +2,14 @@ import React, {useContext} from 'react'
 import styled from 'styled-components'
 
 import Square from './Square'
-
+import {GameContext} from './Context'
+import {Text} from 'react-native'
 
 const Board = () => {
+    const c = useContext(GameContext)
     return(
         <Container>
+            <Title>{`Player ${c.turn}`}</Title>
             <Row>
                 <Square i={0} />
                 <Square i={1} />
@@ -22,6 +25,7 @@ const Board = () => {
                 <Square i={7} />
                 <Square i={8} />
             </Row>
+            
         </Container>
     )
 }
@@ -37,4 +41,9 @@ const Row = styled.View`
     flexDirection: row
 
 `
+const Title = styled.Text`
+font-size: 20px;
+font-weight: bold;
+color: black;
+`;
 export default Board
