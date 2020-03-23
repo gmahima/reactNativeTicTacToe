@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
-import {Text} from 'react-native'
-
+import {Text, TouchableOpacity} from 'react-native'
+import {GameContext} from './Context'
 
 const Square = ({i}) => {
+    const c = useContext(GameContext)
+
     return(
+        <TouchableOpacity onPress={() => {console.log("hi"); c.actions.mark(i)}}> 
         <Tile>
             <Val>
-                {i}
+                {c.values[i]}
             </Val>
         </Tile>
+        </TouchableOpacity>
     )
 }
 

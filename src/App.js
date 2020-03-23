@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,11 +18,15 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Board from './Board'
+import {Provider,Context} from './Context'
 
 import styled from 'styled-components'
 const App = () => {
   return (
-    <Board />
+    <Provider>
+      <Board />
+    </Provider>
+    
   );
 };
 
