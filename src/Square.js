@@ -8,7 +8,7 @@ const Square = ({i}) => {
 
     return(
         <TouchableOpacity onPress={() => {
-        if(c.status === 'running') {c.actions.mark(i)}
+        if(c.isRunning=== true) {c.actions.mark(i)}
         }}> 
         <Tile>
             <Val>
@@ -22,6 +22,7 @@ const Square = ({i}) => {
 
 const Tile = styled.View`
     borderWidth: 1;
+    borderColor: white
     width: 100;
     height: 100;
     alignItems: center;
@@ -31,7 +32,7 @@ const Tile = styled.View`
 const Val = styled.Text`
 font-size: 20px;
 font-weight: 500;
-color: palevioletred;
+color: white;
     
 `
 

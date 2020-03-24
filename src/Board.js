@@ -9,14 +9,6 @@ const Board = () => {
     const c = useContext(GameContext)
     return(
         <Container>
-            {/* {() => {
-                if(c.status === "running") {
-                    <Title>{c.turn}</Title>
-                }
-                else if(c.winner != 0) {
-                    <Title>{c.winner}</Title>
-                }
-            }} */}
             <Row>
                 <Square i={0} />
                 <Square i={1} />
@@ -38,8 +30,6 @@ const Board = () => {
 }
 
 const Container = styled.View`
-    flex: 1;
-    background-color: papayawhip;
     justify-content: center;
     align-items: center;
 `

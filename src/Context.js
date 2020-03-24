@@ -3,19 +3,19 @@ import React, {useState, createContext, useEffect} from 'react'
 export const GameContext = createContext(null)
 
 export const Provider = ({children}) => {
-    const [values, setValues] = useState(Array(9).fill(null));
-    const [status, setStatus] = useState('running')
+    const [values, setValues] = useState(Array(9).fill(''));
+    const [isRunning, setIsRunning] = useState(true)
     const [turn, setTurn] = useState(2)
     const [winner, setWinner] = useState(0);
     const reset = () => {
         setValues(arr)
     }
     const mark = (i) => {
-        
+        if(values[i] === '') {
         const squares = values.slice();
         if(turn === 1) {squares[i] = 'X';}
         else {squares[i] = 'O';}
-        setValues(squares)
+        setValues(squares) }
 
     }
 
@@ -40,13 +40,20 @@ export const Provider = ({children}) => {
                   else {
                       setWinner(1)
                   }
-                  setStatus("over")
+                  setIsRunning(false)
               }
           }
 
     }
+    const checkDraw = () => {
+        console.log(values.find((e) => e===''))
+        if(values.find((e) => e==='') === undefined) {
+            setIsRunning(false)
+        }
+    }
     useEffect(() => {
         calcWinner();
+        checkDraw();
         if(turn === 1) {
             setTurn(2)
         }
@@ -59,7 +66,7 @@ export const Provider = ({children}) => {
     return(
         <GameContext.Provider value={{
             values,
-            status,
+            isRunning,
             turn,
             winner,
 
