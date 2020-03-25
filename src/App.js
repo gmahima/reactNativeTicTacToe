@@ -15,7 +15,7 @@ import {Provider,GameContext} from './Context'
 
 import styled from 'styled-components'
 
-
+console.disableYellowBox = true;
 const State = () => {
   const c = useContext(GameContext)
   if (c.isRunning === true)
@@ -65,18 +65,6 @@ const App = () => {
 
 
 export default App;
-// import React from 'react';
-// import styled from 'styled-components';
-
-// export default class App extends React.Component {
-//     render() {
-//         return (
-//             <Container>
-//                 <Title>React Native with 💅 Styled Components</Title>
-//             </Container>
-//         );
-//     }
-// }
 
 const Container = styled.View`
     flex: 1;
@@ -101,3 +89,12 @@ const SubTitle = styled.Text`
     color: white;
     padding: 10px;
 `;
+
+const StyledButton = styled.Button`
+background-color: #4CAF50 !important;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+font-size: 16px;
+`
