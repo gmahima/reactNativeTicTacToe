@@ -7,6 +7,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
 
 import Board from './Board'
@@ -39,6 +40,15 @@ const Game = () => {
 
 
         <Board />
+        {
+          c.isRunning ? (
+            null
+          ) : (
+            <TouchableOpacity onPress={() => {c.actions.reset()}}>
+              <Title>Reset</Title>
+            </TouchableOpacity>
+          )
+        }
       </Container>
   )
 }

@@ -8,7 +8,8 @@ export const Provider = ({children}) => {
     const [turn, setTurn] = useState(2)
     const [winner, setWinner] = useState(0);
     const reset = () => {
-        setValues(arr)
+        setValues(Array(9).fill(''))
+        setIsRunning(true)
     }
     const mark = (i) => {
         if(values[i] === '') {
